@@ -1,0 +1,45 @@
+.Dd $Mdocdate$
+.Dt CWJACK 1
+.Os
+.Sh NAME
+.Nm cwjack
+.Nd a virtual morse code keyer using JACK
+.Sh SYNOPSIS
+.Nm
+.Bk -words
+.Op Fl f Ar freq
+.Ek
+.Sh DESCRIPTION
+.Nm
+is a virtual morse code
+.Pq CW
+keyer which utilizes the JACK audio connection kit for audio routing.
+.Pp
+The options are as follows:
+.Bl -tag -width Ds
+.It Fl f Ar freq
+Specify a frequency to use.
+You may optionally specify a unit; the default is 1000 Hz.
+The frequency specified must be within 20 Hz to 20,000 Hz, inclusive.
+.El
+.Pp
+When
+.Nm
+starts, it waits until you press any key, and sets that key
+.Pq and whatever modifiers you were holding down
+as the active key which triggers the tone.
+.Pp
+.Nm
+will automatically try to connect to all audio devices which physically
+play sound that it can find in JACK, and to the left input of fldigi,
+if it is found.
+.Sh EXIT STATUS
+.Nm
+exits with values according to
+.Xr sysexits 3
+.Sh AUTHORS
+.Nm
+was written by
+.An Jean-Philippe Ouellet Aq jpo@vt.edu
+.Sh BUGS
+There is some noise when starting and stoping the tone.
